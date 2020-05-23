@@ -28,5 +28,141 @@ main {
   display: -ms-flexbox;
   display: flex;
   margin-left: 5rem;
+  padding-left: 1rem;
+  background-color: #f7f7f7;
+  color: #3f3f44;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+}
+
+.navbar {
+  position: fixed;
+  background-color: #3f3f44;
+}
+
+.navbar-nav {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-item .aboutustooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #1f1f25;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  font-size: 10px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  margin-left: 5rem;
+}
+
+.nav-item .skirtstooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #1f1f25;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  font-size: 10px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  margin-left: 5rem;
+}
+
+.nav-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 5rem;
+  color: #f7f7f7;
+  text-decoration: none;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.logo {
+  font-size: 2.5rem;
+  margin-left: .75rem;
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+  .navbar-nav {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .nav-item {
+    border: 1px solid red;
+    width: 5rem;
+  }
+  .nav-item:last-child {
+    margin-left: auto;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+  .nav-item {
+    -webkit-transition: 200ms;
+    transition: 200ms;
+  }
+  .nav-item:hover {
+    background-color: #1f1f25;
+  }
+  .nav-item:hover .aboutustooltip, .nav-item:hover .skirtstooltip {
+    visibility: visible;
+  }
+  .nav-item:hover .nav-link {
+    color: #fdcb9e;
+  }
 }
 /*# sourceMappingURL=style.css.map */
