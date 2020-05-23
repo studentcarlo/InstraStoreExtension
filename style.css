@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   border-collapse: collapse;
+  background-color: #f7f7f7;
 }
 
 body::-webkit-scrollbar {
@@ -24,18 +25,81 @@ body::-webkit-scrollbar-thumb {
 }
 
 main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   margin-left: 5rem;
-  padding-left: 1rem;
   background-color: #f7f7f7;
   color: #3f3f44;
 }
 
 .container {
+  margin: 1rem;
+}
+
+.image-gallery {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+      grid-template-areas: "first second second" "first third  fourth" "fifth fifth  fourth";
+}
+
+.image-gallery a {
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.image-gallery a:hover {
+  -webkit-box-shadow: 3px 3px 8px 5px #ccc;
+          box-shadow: 3px 3px 8px 5px #ccc;
+}
+
+.image-gallery a img {
+  width: 100%;
+  height: 25rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.image-gallery .img1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: first;
+}
+
+.image-gallery .img2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: second;
+}
+
+.image-gallery .img3 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: third;
+}
+
+.image-gallery .img4 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: fourth;
+}
+
+.image-gallery .img5 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: fifth;
 }
 
 .navbar {
@@ -75,7 +139,7 @@ main {
   font-size: 10px;
   /* Position the tooltip */
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   margin-left: 5rem;
 }
 
@@ -89,7 +153,7 @@ main {
   font-size: 10px;
   /* Position the tooltip */
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   margin-left: 5rem;
 }
 
@@ -137,11 +201,18 @@ main {
             flex-direction: row;
   }
   .nav-item {
-    border: 1px solid red;
     width: 5rem;
   }
   .nav-item:last-child {
     margin-left: auto;
+  }
+  .image-gallery {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+    gap: 1rem;
+        grid-template-areas: "first" "second" "third" "fourth" "fifth";
   }
 }
 

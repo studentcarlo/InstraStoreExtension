@@ -7,6 +7,7 @@ $primary-font:'Roboto', sans-serif;
 $secondary-font:'Montserrat', sans-serif;
 $easthetic-font:'Merriweather', serif;
 $highlight-color:#33272a;
+$grdgap:20px;
 $transition-speed:200ms;
 $small-UX:480px;
 
@@ -27,6 +28,7 @@ body {
     margin: 0;
     padding: 0;
     border-collapse: collapse;
+    background-color: $secondary-color;
     &::-webkit-scrollbar {
         width: .25rem;
     }
@@ -39,16 +41,57 @@ body {
 }
 
 main {
-    display: flex;
     margin-left: 5rem;
-    padding-left: 1rem;
     background-color: $secondary-color;
     color: $primary-color;
 }
  .container {
+     margin:1rem;
+ }
+
+ .image-gallery {
      display: grid;
      
+     grid-template-columns: repeat(3,1fr);
+     grid-template-rows: repeat(3,1fr);
+     gap: 1rem;
+     grid-template-areas: 
+        "first second second"
+        "first third  fourth"
+        "fifth fifth  fourth";
+
+     & a {
+         transition: $transition-speed;
+     }
+     & a:hover {
+        box-shadow: 3px 3px 8px 5px #ccc;
+     }
+     & a img {
+         width: 100%;
+         height: 25rem;
+         justify-content: center;
+         align-items: center;
+         object-fit: cover;
+     }
+
+     & .img1 {
+        grid-area: first;
+     }
+     & .img2 {
+        grid-area: second;
+     }
+     & .img3 {
+        grid-area: third;
+     }
+     & .img4 {
+        grid-area: fourth;
+     }
+     & .img5 {
+        grid-area: fifth;
+     }
  }
+
+
 
 .navbar {
     position: fixed;
@@ -75,7 +118,7 @@ main {
         font-size: 10px;
         /* Position the tooltip */
         position: absolute;
-        z-index: 1;
+        z-index: 10;
         margin-left: 5rem;
     }
     .skirtstooltip {
@@ -88,7 +131,7 @@ main {
         font-size: 10px;
         /* Position the tooltip */
         position: absolute;
-        z-index: 1;
+        z-index: 10;
         margin-left: 5rem;
     }
 } 
@@ -127,11 +170,21 @@ main {
         flex-direction:row;
     }
     .nav-item {
-        @include debugger();
         width: 5rem;
     }
     .nav-item:last-child {
         margin-left: auto;
+    }
+    .image-gallery {
+    grid-template-columns : 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    grid-template-areas: 
+       "first"
+       "second"
+       "third"
+       "fourth"
+       "fifth"
     }
 }
 
