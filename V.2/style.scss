@@ -1,0 +1,130 @@
+$primarycolor: #ec9045;
+$secondarycolor: #f7f7f7;
+$tertiarycolor:#3f3f44;
+$quanternarycolor:#cceabb;
+$white:#ffffff;
+$gray:#ccc;
+$primarytextcolor:#bd2f47;
+$transitionspeed:400ms;
+
+@mixin zromarginpadding {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin bxsizecollapse {
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+
+@mixin debugger {
+    border: 1px solid red;
+}
+:root {
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;   
+}
+
+* {
+    @include bxsizecollapse();
+    @include zromarginpadding();
+    text-decoration: none;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1.75fr 1.50fr;
+    grid-template-rows: .40fr 1.75fr .50fr .30fr;
+    background-color: #ccc;
+    
+}
+
+main {
+    grid-area: 1/1/3/3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .25fr 1fr;
+    background-color: $primarycolor;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 10%;
+    & .shopname {
+        font-size: 3rem;
+        font-weight: 700;
+        color: $white;
+        margin: 3% 5% 5% 10%;
+    }
+
+    & .maincontent {
+        font-size: 1.25rem;
+        color: $white;
+        margin: 15% 20% 20% 10%;
+        text-align: justify;
+    }
+}
+
+.sectioncontainer {
+    grid-area: 3/1/4/3;
+    background-color: $tertiarycolor;
+    display: flex;
+    flex-direction: row;
+    color: $white;
+    & .firstsection {
+        flex-grow: 1;
+    }
+    & .secondsection {
+        flex-grow: 1;
+    }
+    & .thirdsection {
+        flex-grow: 1;
+    }
+}
+
+.footer {
+    grid-area: 4/1/5/3;
+    background-color: $quanternarycolor;
+    &.footercontent {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+header {
+    grid-area: 1/3/2/4;
+    
+    & nav {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: 1fr;
+        height: 100%;
+        & .nav-item {
+            display: grid;
+            transition: $transitionspeed;
+            background-color: $white;
+            &:hover {
+                background-color:$primarytextcolor;
+            }
+            & a {
+                font-size: 1rem;
+                font-weight: 700;
+                color: $primarytextcolor;
+                margin: 20% 0 0 10%;
+            &:hover {
+                color: white;
+            }
+            }
+        }    
+    }
+}
+
+figure {
+    grid-area: 2/3/5/4;
+    background-color: $tertiarycolor;
+    width: 100%;
+    height: 100%;
+    & img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
